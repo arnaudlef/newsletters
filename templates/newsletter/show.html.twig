@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Newsletter {{newsletterId}}</h1>
+    <form action="{{ path('app_newsletter_update', {id: newsletterId}) }}" method="post">
+        <input type="text" id="text" name="text" class="form-control rounded-1" value="{{newsletterText}}" />
+        <button class="btn shadow-1 rounded-1 outline txt-blue" type="submit"><span class="outline-text">update</span></button>
+    </form>
+{% endblock %}

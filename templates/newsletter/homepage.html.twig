@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Inscrivez vous à notre newsletter</h1>
+        <form action="{{ path('app_newsletter_add') }}" method="post">
+            <div class="form-field">
+                <label for="text">Newsletter</label>
+                <input type="text" id="text" name="text" class="form-control rounded-1" placeholder="Contenu de la newsletter" />
+            </div>
+            <button class="btn shadow-1 rounded-1 outline txt-blue" type="submit"><span class="outline-text">add newsletter</span></button>
+        </form>
+    <form action="{{ path('app_email') }}" method="post">
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" class="form-control rounded-1" placeholder="example@example.fr" />
+        </div>
+        <div class="grix xs2 sm1">
+            {% for newsletter in newsletters %}
+                <div class="form-field">
+                    <label class="form-check">
+                        <input type="checkbox" name="newsletter_text" value="{{newsletter.text}}" />
+                        <a href="{{ path('app_newsletter_show', {id: newsletter.id}) }}">{{ newsletter.text }}</a>
+                        <a href="{{ path('app_newsletter_delete', {id: newsletter.id}) }}"><i class="material-icons">delete</i></a>
+                    </label>
+                </div>
+            {% endfor %}
+        </div>
+            <button class="btn shadow-1 rounded-1 outline txt-blue" type="submit"><span class="outline-text">get newsletter</span></button>
+    </form>
+{% endblock %}

@@ -3,17 +3,32 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@1.3.2/dist/css/axentix.min.css">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {% endblock %}
     </head>
-    <body>
+    <body class="layout">
+    <header>
+      <nav class="navbar shadow-1 primary">
+        <a href="{{ path('app_homepage')}}" class="navbar-brand">Newsletters</a>
+      </nav>
+    </header>
+
+    <main>
         {% block body %}{% endblock %}
-    </body>
+    </main>
+
+    <footer class="footer primary">
+      Made By Arnaud Lefrancois
+    </footer>
+        {% block javascripts %}
+            <script
+              src="https://code.jquery.com/jquery-3.4.1.min.js"
+              integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+              crossorigin="anonymous"></script>
+        {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/axentix@1.3.2/dist/js/axentix.min.js"></script>
+  </body>
 </html>
+
